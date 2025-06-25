@@ -34,7 +34,7 @@ A test subset of **1,880 labels** was used for evaluation, categorized into:
 | Anatomical (A)     | 208    |
 | Unclassified       | 58     |
 
-Gold standard annotations are available in [`biosamples.tsv`]() and [`mappings_test.tsv`]().
+Gold standard annotations are available in [`biosamples.tsv`](biosamples.tsv) and [`mappings_test.tsv`](mappings_test.tsv).
 
 ---
 
@@ -48,7 +48,7 @@ All models were accessed via the OpenAI API:
 - **Fine-tuned**: trained on labeled data for this task.
 - **RAG**: integrates results from BioPortal Annotator at runtime.
 
-Prompts were structured to define task scope, output format, and constraints (e.g., one valid identifier per label, no extra text).
+Prompts were structured to define task scope, output format, and constraints (e.g., one valid identifier per label, no extra text). Base and fine-tuning approaches were developed in previous studies.
 
 ### 🔎 RAG + BioPortal Annotator
 
@@ -56,9 +56,13 @@ RAG uses the **BioPortal Annotator** to retrieve candidate ontology terms for ea
 
 This approach enhances semantic matching while maintaining interpretability and cost-efficiency.
 
+![Workflow](general_diagram.png)
+
 ---
 
 ## 📊 Evaluation
+
+All the scripts used to perform the analysis of the performance of the RAG method are located in the directory [`analysis`](analysis).
 
 ### Metrics Used
 
@@ -73,7 +77,4 @@ This approach enhances semantic matching while maintaining interpretability and 
 - Predictions were matched to gold standard annotations using exact and semantic matching (synonyms, subclasses, etc.).
 - Errors were qualitatively reviewed to distinguish between true errors and acceptable variations.
 
----
-
-## 📁 Repository Structure
 
